@@ -1,0 +1,42 @@
+<h1>{{ name | uppercase }} - {{ name }}</h1>
+<h1>{{ name | lowercase }} - {{ name }}</h1>
+<p> {{ 'en un lugar de la mancha' | titlecase }}</p>
+<p> {{ iva | percent }} de 1000 es {{ 1000 * iva }}</p>
+<p>{{ racional | percent: '2.2-3' }}</p>
+<!-- miNumeroEntero. minNumeroDecimales -  maxNumeroDecimales -->
+
+<!-- pipes de depuración -->
+<p> {{ arrayNumeros | json }}</p>
+<p> {{  precio | currency: 'EUR' }}</p>
+<p>{{ fecha | date: 'dd/MMMM/yy - hh:mm:ss' }}</p>
+<button (click)="cambiarFecha()">Cambiar Fecha</button>
+<!--
+
+  Formato     Equivale              Salida
+----------  --------------------  --------------------------------
+short       M/d/yy h:mm a         6/15/15 9:03 AM
+medium      MMM d y h:mm:ss a     Jun 15 2015 9:03:01 AM
+long        MMMM d y h:mm:ss a z  June 15 2015 at 9:03:01 AM GMT+1
+shortDate   M/d/yy                6/15/15
+mediumDate  MMM d y               Jun 15 2015
+longDate    MMMM d y              June 15 2015
+fullDate    EEEE MMMM d y         Monday June 15 2015
+shortTime   h:mm a                9:03 AM
+mediumTime  h:mm:ss a             9:03:01 AM
+longTime    h:mm:ss a z           9:03:01 AM GMT+1
+fullTime    h:mm:ss a zzzz        9:03:01 AM GMT+01:00
+full        EEEE MMMM d y         Monday June 15 2015
+            h:mm:ss a zzzz        at 9:03:01 AM GMT+01:00
+-->
+
+<hr>
+<p>Mi cumpleaños es el {{ birthday | date: 'dd/MM' }}</p>
+
+<input type="range" min="0" max="4" step="1" value="0" (input)="modificarArray($event)">
+<p>{{ arrAnimales | slice: min: max }}</p>
+
+<p>{{ name | vuelta }}</p>
+
+<p>{{ textoLargo | recortarTextos: 30 : "***"}}</p>
+
+<p [innerHTML]="textoLargo | formateador : 'tomato': 'regular': 'lowercase' "></p>
